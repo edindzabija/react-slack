@@ -1,9 +1,19 @@
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Header from './Header'
 
 function App() {
   return (
     <div className='App'>
-      <h1>slackerino react</h1>
+      <Router>
+        <>
+          <Switch>
+            <Route path='/' exact>
+              <Header />
+            </Route>
+          </Switch>
+        </>
+      </Router>
     </div>
   )
 }

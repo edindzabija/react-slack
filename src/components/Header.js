@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { Avatar } from '@material-ui/core'
+
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import SearchIcon from '@material-ui/icons/Search'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
@@ -35,7 +37,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: var(--slack-color);
-  color: white;
+  color: #ffffff;
 `
 
 const HeaderLeft = styled.div`
@@ -74,7 +76,7 @@ const HeaderSearch = styled.div`
     text-align: center;
     min-width: 30vw;
     outline: none;
-    color: white;
+    color: #ffffff;
   }
 `
 const HeaderRight = styled.div`

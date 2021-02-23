@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core'
 import { db } from '../firebase'
 import firebase from 'firebase'
 
-const ChatInput = ({ channelName, channelId }) => {
+const ChatInput = ({ channelName, channelId, chatRef }) => {
   const [input, setInput] = useState('')
   console.log(channelId)
 
@@ -22,6 +22,11 @@ const ChatInput = ({ channelName, channelId }) => {
       userImage:
         'https://www.flaticon.com/svg/vstatic/svg/3135/3135715.svg?token=exp=1614099790~hmac=2df7511ef14e56ebc1f91a55c342b8db',
     })
+
+    chatRef.current.scrollIntoView({
+      behavior: 'smooth',
+    })
+
     setInput('')
   }
 

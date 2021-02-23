@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useCollection } from 'react-firebase-hooks/firestore'
-import { db } from '../firebase'
+import { auth, db } from '../firebase'
 
 import SidebarOption from './SidebarOption'
 
@@ -17,18 +17,20 @@ import FileCopyIcon from '@material-ui/icons/FileCopy'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import AddIcon from '@material-ui/icons/Add'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 const Sidebar = () => {
-  const [channels, loading, error] = useCollection(db.collection('rooms'))
+  const [channels] = useCollection(db.collection('rooms'))
+  const [user] = useAuthState(auth)
 
   return (
     <SidebarContainer>
       <SidebarHeader>
         <SidebarInfo>
-          <h2>Beniz Slackeroni</h2>
+          <h2>Privatni Slack</h2>
           <h3>
             <FiberManualRecordIcon />
-            Beniz Benito
+            {user?.displayName}
           </h3>
         </SidebarInfo>
         <CreateIcon />

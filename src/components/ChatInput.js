@@ -1,16 +1,38 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Button } from '@material-ui/core'
+import { db } from '../firebase'
+import firebase from 'firebase'
 
 const ChatInput = ({ channelName, channelId }) => {
+  const [input, setInput] = useState('')
+  console.log(channelId)
+
   const sendMessage = (e) => {
     e.preventDefault()
+
+    if (!channelId) {
+      return false
+    }
+
+    db.collection('rooms').doc(channelId).collection('messages').add({
+      message: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      user: 'Beniz',
+      userImage:
+        'https://www.flaticon.com/svg/vstatic/svg/3135/3135715.svg?token=exp=1614099790~hmac=2df7511ef14e56ebc1f91a55c342b8db',
+    })
+    setInput('')
   }
 
   return (
     <ChatInputContainer>
       <form>
-        <input placeholder={`Message #ROOM`} />
+        <input
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+          placeholder={`Message #${channelName}`}
+        />
         <Button hidden type='submit' onClick={sendMessage}>
           SEND
         </Button>

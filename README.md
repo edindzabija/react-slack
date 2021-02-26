@@ -1,3 +1,10 @@
+# React - Slacklike chat
+
+Demo: https://react-slack-5ead0.web.app/
+> Select or create channel on the left to start chatting   
+*Most of the features are currently placeholders.*
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts

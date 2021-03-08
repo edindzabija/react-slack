@@ -1,4 +1,6 @@
-# React - Slacklike chat
+# React - Chat - Slack Clone 
+
+Trying to recreate the look of slack with chat possibilities made with firebase.
 
 Demo: https://react-slack-5ead0.web.app/
 > Select or create channel on the left to start chatting   
